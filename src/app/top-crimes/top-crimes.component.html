@@ -1,4 +1,4 @@
-<app-datepicker></app-datepicker>
+<app-datepicker (dateChange)="newSelectedDate($event)"></app-datepicker>
 <table  class="table table-bordered">
   <tr *ngFor ="let crime of topCrimes;">
     <aapcrime [crime]="crime"></aapcrime>

@@ -1,6 +1,6 @@
 <p>
   datepicker works!
 </p>
-<ngb-datepicker #dp [(ngModel)]="model" (navigate)="date = $event.next"></ngb-datepicker>
+<ngb-datepicker #dp [(ngModel)]="model"  (ngModelChange)="dateChnage(model)" (navigate)="date = $event.next"></ngb-datepicker>
 <pre>Month: {{ date.month }}.{{ date.year }}</pre>
 <pre>Model: {{ model | json }}</pre>

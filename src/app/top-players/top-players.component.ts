@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Params} from '@angular/router';
 import {TopCrimesService} from '../top-crimes.service';
 
 @Component({
@@ -13,7 +13,10 @@ export class TopPlayersComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private crimeService: TopCrimesService) {
 
-    this.category = this.route.snapshot.paramMap.get('category');
+    //this.category = this.route.snapshot.paramMap.get('category');
+    this.route.params.subscribe( (params: Params) => {
+      this.category = params['category'];
+    })
 
     if(this.category){
 

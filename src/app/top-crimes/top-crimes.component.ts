@@ -9,12 +9,18 @@ import 'rxjs/add/operator/map';
 })
 export class TopCrimesComponent implements OnInit {
   topCrimes;
+  newDate;
   constructor(private topCrimeService: TopCrimesService) {
-    topCrimeService.getTopCrimes().subscribe(res => this.topCrimes = res);
 
   }
 
   ngOnInit() {
-  }
+    if(!this.newDate)
+      this.topCrimeService.getTopCrimes().subscribe(res => this.topCrimes = res);
 
+  }
+  newSelectedDate(event){
+    this.newDate = event;
+   // console.log(this.newDate);
+  }
 }
